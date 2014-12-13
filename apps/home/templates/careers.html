@@ -1,0 +1,137 @@
+{% extends 'base2.html' %}
+
+{% load static from staticfiles %}
+
+{% block css %}
+	<link rel="stylesheet" href="{% static 'css/home.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<style>
+		.relleno-both-lateral-3{
+			padding-left: 5em !important;
+			padding-right: 0 !important;
+		}
+	</style>
+	<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block  main %}
+<section id="principal-careers">
+	<div class="container-srs">
+		<div class="row">
+			<div class="col-md-6 title-especial" id="title-careers">
+				<h1 class="font-size-4-3"><strong>CAREERS<span class="color-texto-sunflower">.</span></strong></h1>
+			</div>
+			<div class="col-md-6" id="cont-img-careers">
+				<img src="{% static 'img/portada.jpg' %}" width="100%" height="175px" class="img-contact-careers">
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="content-careers">
+	<div class="container-srs">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 text-center" id="subtitle-careers">
+				<h2 class="font-size-3 title-especial"><strong>LOOKING FOR NEW <span class="color-texto-sunflower">TALENT.</span></strong></h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<p class="margen-top-dos text-justify">
+					The only thing that trumps knowledge is experience. The SRS Engineering management team combined represents over 70 years of civil engineering experience.  In addition to 20 years operational field experience, the Network is in place to provide exceptional innovative solutions to its clients.  Solutions that result in successful and efficiently completed projects.
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 margen-top-dos">
+				<div class="form-horizontal">
+				  <div class="form-group">
+				    <label class="col-sm-2 control-label">NAME</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="name">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-2 control-label">LASTNAME</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="lastname">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-2 control-label">ADDRESS</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="address">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-2 control-label">EMAIL</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="email">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-2 control-label">TELEPHONE</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="phone">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-10 text-center">
+				      <button class="btn btn-customize btn-default btn-default-customize"><b>SENT</b></button>
+				    </div>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
+
+{% block js %}
+
+<script>
+
+$('.btn-default-customize').click(function(){
+	var careersData = {
+		name: $('#name').val(),
+		lastname: $('#lastname').val(),
+		address: $('#address').val(),
+		email: $('#email').val(),
+		telephone: $('#phone').val()
+	}
+
+	$.ajaxSetup({ 
+		     beforeSend: function(xhr, settings) {
+		         function getCookie(name) {
+		             var cookieValue = null;
+		             if (document.cookie && document.cookie != '') {
+		                 var cookies = document.cookie.split(';');
+		                 for (var i = 0; i < cookies.length; i++) {
+		                     var cookie = jQuery.trim(cookies[i]);
+		                     // Does this cookie string begin with the name we want?
+		                 if (cookie.substring(0, name.length + 1) == (name + '=')) {
+		                     cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		                     break;
+		                 }
+		             }
+		         }
+		         return cookieValue;
+		         }
+		         if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+		             // Only send the token to relative URLs i.e. locally.
+		             xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+		         }
+		     } 
+		});
+
+	$.ajax({
+		data: careersData,
+		url: '/send-careers-email/',
+		type: 'POST'
+	});
+});
+
+
+</script>
+
+{% endblock %}
