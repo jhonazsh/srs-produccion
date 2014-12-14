@@ -13,27 +13,31 @@
         	padding: 0;
         	margin: 0 0px;
         }
+
+        
+        
 	</style>
 {% endblock %}
 
 {% block main %}
 <header id="header-slider">
-	<img src="{% static 'img/main-foto.jpg' %}" width="100%" height="575px" class="imagen-responsiva">
+
+	<!--<img src="{% static 'img/main-foto.jpg' %}" width="100%" height="575px" class="imagen-responsiva">-->
 
 	<div id="subheader">
 		<div id="subheader-true">
-			<div class="row">
-				<div class="col-md-5 col-sm-5" id="logo">
-					<img src="{% static 'img/logo-b.png' %}" alt="">
+			<div class="row row-customize" >
+				<div class="col-lg-4 col-md-3 " id="logo">
+					<img src="{% static 'img/srslogofin.png' %}" alt="">
 				</div>
-				<div class="col-md-5 col-sm-7">
+				<div class="col-lg-7 col-md-9 " id="texto-medio">
 					<div id="name" class="color-texto-blanco titulo-responsive">
 						<h2>HIGHER STANDARDS IN ENGINEERING</h2>
 						<h4>FULL SERVICE CIVIL ENGINEERING CONSULTING FIRM</h4>
 					</div>
 					
 				</div>
-				<div class="col-md-2 col-sm-2 bg-color-sunflower" id="adorno">
+				<div class="col-lg-1 bg-color-sunflower" id="adorno">
 					
 				</div>
 			</div>
@@ -51,9 +55,9 @@
 	</div>
 	
 	<div class="contenedor-proyectos-true container-responsive-2">
-		{% for sector in sectores %}
+		{% if proyectos %}
 
-			{% for proyecto in sector.proyectos.all %}
+				{% for proyecto in proyectos %}
 				<div class="col-md-4 col-xs-6 col-sm-4 margen-bottom-medio">
 				    <figure>
 						<a href="sectors/{{sector.slug}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100%" class="img-responsive rounded"></a>
@@ -62,15 +66,17 @@
 						<b>{{proyecto.nombre_proyecto}}</b>
 					</p>
 				</div>
-			{%empty%}
+
+				{% endfor %}
+			{%else%}
 
 			<div class="alert alert-warning text-center" role="alert">
 				<b>Empty list of Key Projects!</b> - <a href="/admin">Add Projects.</a>
 			</div>
 
-			{% endfor %}
+			
 
-		{% endfor %}
+		{% endif %}
 	</div>
 
 	
@@ -80,30 +86,34 @@
 		<div class="banner">
 
 			<ul>
-			    <li>
-			    	
-			    	{% for sector in sectores %}
-
-						{% for proyecto in sector.proyectos.all %}
+			    
+					
+						{% for proyecto in proyectos %}
+							{% if forloop.counter|add:"-1"|divisibleby:"4" %}
+							<li>
+							{% endif %}
+						
 				    		<div class="col-md-3 relleno-lateral-p">
 				    			<figure>
-						        	<a href="sectors/{{sector.slug}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100%" class="img-slider"></a>
+						        	<a href="sectors/{{proyecto.sector.slug}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100%" class="img-slider"></a>
+
 						        </figure>
 				        		<p class="color-texto-sunflower">
 						        	<b>{{proyecto.nombre_proyecto}}</b>
 						        	
 						        </p>
 							</div>
-						{% endfor %}
+						
 					
-			    	{% if forloop.counter|divisibleby:4 %}
-					
-			    </li>
-			    <li>
-			    {% endif %}
+						    	{% if forloop.counter|divisibleby:"4" %}
+								
+						    </li>
+						    
+						    {% endif %}
 
+						    
 			    {% endfor %}
-			    </li>
+			    
 			</ul>
 			        			
 		</div>
@@ -113,9 +123,6 @@
 			<button href="#" class="unslider-arrow prev"><span class="icon-arrow-left"></span></button>
 			<button href="#" class="unslider-arrow next"><span class="icon-uniE601"></span></button>
 		</div>
-
-	
-
 
 	{% else %}
 		<div class="alert alert-warning text-center" role="alert">
@@ -156,7 +163,6 @@
 
 	function redimensionar(){
 		var tamWindow = $(window).width()
-		console.log(tamWindow);
 		$('#subheader-true>.row').width(tamWindow);
 	}
 

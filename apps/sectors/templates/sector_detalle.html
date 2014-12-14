@@ -23,11 +23,14 @@
 
 	<section class="secciones">
 		<div class="container container-responsive-3">
+			{% for s in sector %}
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3 text-center title-especial">
 					
 					<h1 class="font-size-3 mayuscula">
-						<strong>{{object.nombre_sector}}<span class="color-texto-sunflower">.</span></strong>
+						
+						<strong>{{s.nombre_sector}}<span class="color-texto-sunflower">.</span></strong>
+						
 					</h1>
 				</div>
 			</div>
@@ -35,12 +38,15 @@
 			<div class="row">
 				<div class="col-md-12 descripcion-sector">
 					<p>
-						{{object.descripcion}}
+						{{s.descripcion}}
 					</p>
 				</div>
 			</div>
+			
 
-			{% for proyecto in object.proyectos.all %}
+			{% for proyecto in proyectos %}
+
+			{% ifequal proyecto.sector.slug s.slug%}
 			<div class="row margen-top-dos proyecto">
 				<div class="col-md-12">
 					<p class="color-texto-sunflower font-size-2 sector-text-responsive">{{proyecto.nombre_proyecto}}</p>
@@ -78,6 +84,8 @@
 					</div>
 				</div>
 			</div>
+			{% endifequal %}
+
 			{% endfor %}
 
 		</div>
@@ -87,6 +95,7 @@
 			
 	
 	</section>
+	{% endfor %}
 		
 		
 	

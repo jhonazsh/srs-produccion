@@ -9,14 +9,17 @@
   margin-top: 0.5em;
 }
 #header-slider {
-  height: 600px;
+  background: url('../img/mainfin.png') no-repeat;
+  height: 619px;
+  background-size: cover;
+  margin-bottom: 1em;
 }
 #header-slider #subheader {
   height: 115px;
   background-color: rgba(52,73,94,0.87);
   position: absolute;
   z-index: 1;
-  top: 510px;
+  top: 554px;
   box-sizing: border-box;
   left: 0;
   right: 0;
@@ -34,13 +37,29 @@
   right: 0;
   position: absolute;
 }
+
+#texto-medio{
+  text-align: right;
+}
+
+#logo>img{
+  width: 400px;
+  height: 78px;
+}
+
+#adorno{
+  width: 135px;
+  height: 65px;
+}
+
 #name {
   width: 100%;
-  padding: 0.5em 1em;
+  padding: 0em 1em;
   box-sizing: border-box;
 }
-#name h4 {
+#name>h4 {
   letter-spacing: 1.5px;
+  font-size: 24px;
 }
 .relleno-lateral-p {
   padding: 0 3px;
@@ -126,8 +145,9 @@
   font-size: 1.5em;
 }
 #header-portada {
-  background: url("../img/expertise.png") center no-repeat;
+  background: url("../img/expertisefin.png") center no-repeat;
   background-size: cover;
+  background-position: top;
   height: 280px;
 }
 .thumbnail {
@@ -188,6 +208,14 @@
     height: 450px !important;
   }
 
+  .slider-principal-true, .contenedor-arrow{
+    display: none;
+  }
+
+  .slider-principal-true{
+    display: none;
+  }
+
   
 
   .nombre-proyecto-key{
@@ -246,7 +274,7 @@
   }
 
   #header-slider #subheader{
-    top: 400px !important;
+    top: 435px !important;
     height: auto !important;
   }
 
@@ -278,12 +306,18 @@
     margin-top: 0.5em
   }
 
+   .row-customize{
+          margin-left: 0;
+        }
+
   
 
 }
 
 /* Media querie de 480 a menos*/
 @media screen and (max-width: 480px){
+ 
+
   .imagen-responsiva{
     height: 200px !important;
   }
@@ -305,7 +339,7 @@
   }
 
   #header-slider #subheader{
-    top: 250px !important;
+    top: 260px !important;
     height: 150px !important;
     background-color: #34495e !important;
   }
@@ -354,26 +388,17 @@
   
 }
 
-@media screen and (max-width: 1024px){
-  #logo img{
-    width: 300px;
-    height: 70px;
-  }
-
+@media screen and (max-width: 1024px) and (min-width: 768px){
   #adorno{
     display: none;
   }
 
+  .titulo-responsive{
+    text-align: center;
+  }
+
   .contenedor-proyectos-true{
     margin-bottom: 1em;
-  }
-
-  #name h2{
-    font-size: 1.6em;
-  }
-
-  #name h4{
-    font-size: 1em;
   }
 
   .imagen-responsiva{
@@ -381,7 +406,7 @@
   }
 
   #header-slider #subheader{
-    top: 435px;
+    top: 455px;
   }
 
   #header-slider{
@@ -394,6 +419,10 @@
   }
 
   .slider-principal-true, .contenedor-arrow{
+    display: none;
+  }
+
+  .slider-principal-true{
     display: none;
   }
 
@@ -494,46 +523,81 @@
 
 @media screen and (min-width: 1024px) and (max-width: 1124px){
   #name h2{
-    font-size: 1.6em;
+    font-size: 34px;
   }
 
   #name h4{
-    font-size: 0.9em;
+    font-size: 24px;
   }
 
-  #logo img{
-    width: 380px;
-    height: 80px;
+
+  #adorno{
+    display: none;
+  }
+
+  #texto-medio{
+    float: right;
   }
 
 }
 
 @media screen and (min-width: 1124px) and (max-width: 1224px){
   #name h2{
-    font-size: 1.8em;
+    font-size: 34px;
   }
 
   #name h4{
-    font-size: 1.1em;
+    font-size: 24px;
   }
 
-  #logo img{
-    width: 440px;
-    height: 80px;
+  
+   #texto-medio{
+    float: right;
+  }
+
+  #adorno{
+    display: none;
   }
 }
 
 @media screen and (min-width: 1224px) and (max-width: 1324px){
   #name h2{
-    font-size: 2em;
+    font-size: 34px;
   }
 
   #name h4{
-    font-size: 1.1em;
+    font-size: 24px;
   }
 
-  #logo img{
-    width: 460px;
-    height: 80px;
+}
+ 
+@media screen and (max-width: 1090px) and (min-width: 1025px){
+  #name h4{
+    font-size: 20px;
   }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 992px){
+  #name h4{
+    font-size: 16px;
+  }
+
+  #name h2{
+    font-size: 30px;
+  }
+
+  #name{
+    text-align: right;
+    float: right;
+  }
+}
+
+@media screen and (max-width: 992px){
+  #logo{
+    display: none;
+  }
+
+  .row-customize{
+          margin-left: 0;
+        }
 }

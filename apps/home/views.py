@@ -6,7 +6,6 @@ from apps.projects.models import Proyecto
 from apps.sectors.models import Sector
 from apps.team.models import Miembro
 from .models import TextoServicios, TextoProyectos
-from django.utils.translation import ugettext as _
 from django.http import HttpResponse
 from django.core.mail import send_mail
 

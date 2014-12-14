@@ -20,6 +20,16 @@
         </style>
         <!--<link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">-->
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        
+
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:600,700' rel='stylesheet' type='text/css'>
+
+        <style type="text/css">
+          .navbar-default .navbar-nav li>a{
+            font-family: 'Source Sans Pro', sans-serif !important;
+          }
+        </style>
+
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 
         {% block css %}
@@ -40,7 +50,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">
-            <img src="{% static 'img/logo-b.png' %}" height="35px">
+            <img src="{% static 'img/srslogomini.png' %}" height="35px">
           </a>
         </div>
 
@@ -51,20 +61,20 @@
             
             <div class="col-sm-10 col-sm-offset-2 col-md-offset-3 col-lg-offset-3 relleno-both">
                
-                <ul class="nav navbar-nav">
-                  <li class="li-mobile dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">SP/EN <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Spanish</a></li>
-                      <li><a href="#">English</a></li>
-                    </ul>
-                  </li>
+                <ul class="nav navbar-nav navegacion">
+                 
                   <li class="li-mobile"><a href="/"><b>HOME</b></a></li>
                   <li class="li-mobile"><a href="/group"><b>GROUP</b></a></li>
                   <li class="li-mobile"><a href="/expertise"><b>EXPERTISE</b></a></li>
                   <li class="li-mobile"><a href="/contactus"><b>CONTACT US</b></a></li>
                   <li class="li-mobile"><a href="/careers"><b>CAREERS</b></a></li>
-                  
+                  <li class="li-mobile dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ES/EN</a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Spanish</a></li>
+                      <li><a href="#">English</a></li>
+                    </ul>
+                  </li>
                   
                 </ul>
               
@@ -100,6 +110,8 @@
         <script src="{% static 'js/main.js' %}"></script>
 
         <script>
+          
+
 
           
         </script>

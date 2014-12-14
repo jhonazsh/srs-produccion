@@ -39,22 +39,31 @@ a:hover{
 .cont-logo-super,
 .cont-logo-derecho {
   padding: 0.5em 0;
-  position: absolute;
+  
 }
+
 .cont-logo-super {
   left: 0;
 }
+
+.cont-logo-super img{
+  width: 292px;
+  height: 38px;
+}
+
 .cont-logo-derecho {
   right: 0;
 }
 
 .logoderecho{
-	height: 34px;
-	margin-left: 160px;
+	height: 32px;
+	width: 150px;
+  float: right;
 }
 
 #footer{
-  padding: 3em 0;
+  padding: 3.7em 0;
+  background-color: #34495e;
 }
 
 /* Navbar Customzado */
@@ -75,8 +84,12 @@ a:hover{
   color: #f1c40f;
 }
 
-.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+.navbar-default .navbar-toggle:hover  {
 background-color: #2D2A2A;
+}
+
+ .navbar-default .navbar-toggle:focus{
+  color: #f1c40f;
 }
 
 .navbar-default .navbar-toggle {
@@ -144,9 +157,6 @@ border-color: #6F6D6D;
   padding: 2em 2em;
 }
 
-#footer{
-  background-color: #34495e;
-}
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus{
   background-color: rgba(231, 231, 231, 0);
@@ -162,8 +172,19 @@ border-color: #6F6D6D;
 }
 
 
+
+.colorFix{
+  color: white;
+}
+
+.colorFix>a:hover{
+  color: #f1c40f;
+}
+
+
+
 /* Media Queries */
-@media screen and (max-width: 768px){
+@media screen and (max-width: 991px){
   .dropdown-menu>li>a{
     color: #f1c40f !important;
   }
@@ -204,7 +225,7 @@ border-color: #6F6D6D;
     position: absolute;
     left: 0;
     top: 8px;
-    width: 350px;
+    width: 292px;
   }
 
   .cont-logo-super{
@@ -226,7 +247,7 @@ border-color: #6F6D6D;
 
 @media screen and (max-width: 480px){
   .navbar-default .navbar-brand>img{
-    width: 250px;
+    width: 292px;
   }
 
   .font-size-4-3{
@@ -242,5 +263,20 @@ border-color: #6F6D6D;
     font-size: 0.8em;
   }
 
+  .navbar-default .navbar-toggle:focus{
+    background-color: #2D2A2A;
+  }
+
 
 }
+
+
+/* others media queries */
+@media screen and (max-width: 1200px){
+  .cont-logo-derecho{
+    display: none;
+  }
+
+}
+
+
